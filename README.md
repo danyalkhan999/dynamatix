@@ -428,3 +428,11 @@ Server -> User: 200 OK (Deleted)
 
 @enduml
 ```
+
+# Steps used for Writing Clean Code & Documentation
+
+1. Use MVC Architecture: Separate concerns into models, controllers, and routes.
+2. Follow RESTful API Conventions: Use proper HTTP methods (GET, POST, PUT, DELETE).
+3. Data Validation: Use express-validator to validate request data.
+4. Error Handling: Implement a global error handler.
+5. JSDoc for API Documentation: Write proper documentation for each function.
