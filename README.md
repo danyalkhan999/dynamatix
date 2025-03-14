@@ -330,12 +330,12 @@ const claimSchema = new mongoose.Schema({
 
 **How to ensure collection efficiency?**
 
-1. Proper Indexing
+1. **Proper Indexing**
 
    - Indexing fields like policyNumber, registrationNumber, status, and incidentDate improves query performance.
    - Example:
 
-   ```JavaScript
+   ```js
    claimSchema.index({ policyNumber: 1 });
    claimSchema.index({ registrationNumber: 1 });
    ```
