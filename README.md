@@ -50,3 +50,42 @@ Upgrading our Node.js project from version 10 to 20 introduced breaking changes,
   - [Grid FS Bucket (my custom function)](https://github.com/danyalkhan999/gridfs-bucket)
 
 This challenge pushed me to explore file storage solutions deeply and reinforced the importance of structured problem-solving when third-party solutions are unavailable.
+
+---
+
+# Node.js Failure Analysis Implementation in Product Development
+
+## Q: How would you implement a failure analysis methodology (such as FMEA) when developing a product?
+
+When developing a product with Node.js, implementing a **Failure Analysis Methodology** (like FMEA – Failure Modes and Effects Analysis) helps identify potential issues early and improve reliability.
+
+## **1. Identify Potential Failure Points**
+
+Breaking the system into key components and analyzing failure scenarios:
+
+- **API Failures** – Server crashes, high response times
+- **Database Issues** – Connection failures, slow queries, data inconsistency
+- **Authentication Problems** – Invalid sessions, security loopholes
+- **Third-Party Service Failures** – OAuth authentication issues, payment gateway downtime
+
+## **2. Evaluate Impact & Severity**
+
+Each failure mode is assessed based on:
+
+- **Severity:** How badly does it impact users? (Minor vs. Critical failure)
+- **Frequency:** How often could it happen? (Rare vs. Frequent)
+- **Detection:** How easily can it be detected and fixed? (Immediate vs. Hidden issue)
+
+## **3. Prioritize & Plan Fixes**
+
+Failures with **high severity and high frequency** are prioritized. Solutions include:
+
+- **Preventive Measures:** Rate limiting, database indexing, API retries
+- **Monitoring & Alerts:** Logging errors, setting up failure alerts
+- **Redundancy & Failover:** Backup databases, load balancing, caching mechanisms
+
+## **4. Test & Iterate**
+
+Failure simulations (e.g., service shutdowns, incorrect requests) help verify if fixes work. Based on results, the system is further refined for better resilience.
+
+This approach ensures critical failures are caught and resolved early, leading to a more stable and reliable Node.js application.
