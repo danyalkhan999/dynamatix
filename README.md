@@ -238,5 +238,94 @@ I have generated 3 sample records from the given column using AI and here's the 
         "Repair Cost Gross": 4957.99
     }
 ]
-end
+
 ```
+
+# Task 2: Design Mongo DB Collection - How do you ensure your collection is efficient
+
+Here is the MongoDB schema design:
+
+```
+
+const claimSchema = new mongoose.Schema({
+    companyReference: { type: String, required: true },
+    policyNumber: { type: String, required: true },
+    partnerRef: { type: String, required: true },
+    incidentDate: { type: Date, required: true },
+    accidentCircumstances: { type: String, required: true },
+    damageToVehicle: { type: String, required: true },
+    preExistingDamage: { type: String },
+    registrationNumber: { type: String, required: true },
+    make: { type: String, required: true },
+    model: { type: String, required: true },
+    engineSize: { type: Number },
+    registrationDate: { type: Date },
+    thirdPartyInsurer: { type: String },
+    thirdPartyRef: { type: String },
+    thirdPartyClient: { type: String },
+    thirdPartyRegistration: { type: String },
+    driver: {
+        firstName: { type: String, required: true },
+        lastName: { type: String, required: true },
+        title: { type: String },
+        address: {
+            addressLine1: { type: String },
+            postcode: { type: String }
+        },
+        contact: {
+            homeTelephone: { type: String },
+            workTelephone: { type: String },
+            mobileTelephone: { type: String },
+            fax: { type: String },
+            email: { type: String }
+        }
+    },
+    repairer: {
+        name: { type: String },
+        contact: {
+            telephone: { type: String },
+            mobileTelephone: { type: String },
+            email: { type: String },
+            fax: { type: String }
+        }
+    },
+    bookingInDate: { type: Date },
+    estimateReceivedDate: { type: Date },
+    authorisedDate: { type: Date },
+    authorisedAmounts: { type: Number },
+    supplementaryAuthorisedDate: { type: Date },
+    supplementaryAuthorisedAmounts: { type: Number },
+    calculatedRepairDays: { type: Number },
+    estimatedCompletionDate: { type: Date },
+    revisedEstimatedCompletionDate: { type: Date },
+    repairCompletionDate: { type: Date },
+    invoiceReceivedDate: { type: Date },
+    invoiceApprovedDate: { type: Date },
+    status: { type: String, required: true, enum: ['Pending', 'Approved', 'Rejected', 'Completed'] },
+    repairCost: {
+        net: { type: Number },
+        vat: { type: Number },
+        gross: { type: Number }
+    },
+    totalLossFee: {
+        net: { type: Number },
+        vat: { type: Number },
+        gross: { type: Number }
+    },
+    storageAndRecovery: {
+        net: { type: Number },
+        vat: { type: Number },
+        gross: { type: Number }
+    },
+    notificationDate: { type: Date },
+    fault: { type: Boolean },
+    authorisedPartsAmount: { type: Number },
+    authorisedLabourAmount: { type: Number },
+    authorisedPaintAndMaterialsAmount: { type: Number },
+    authorisedSpecialistAmount: { type: Number }
+});
+
+
+```
+
+- **How to ensure collection efficiency? **
