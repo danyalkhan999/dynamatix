@@ -385,3 +385,7 @@ const claimSchema = new mongoose.Schema({
 With these optimizations, the collection will remain efficient in both storage and query performance.
 
 ---
+
+## Task 3: Create API in Node.JS - Write plantuml and Tell me the steps you took to write clean code, and code documentation
+
+I have written the code in JS Docs format.
