@@ -339,3 +339,49 @@ const claimSchema = new mongoose.Schema({
    claimSchema.index({ policyNumber: 1 });
    claimSchema.index({ registrationNumber: 1 });
    ```
+
+2. **Schema Normalization & Embedding**
+
+   - Embedded objects like driver and repairer avoid unnecessary joins and improve performance.
+   - Avoid deep nesting (limit embedding to 2-3 levels).
+
+3. **Optimized Data Types**
+
+   - Use Number for numerical fields instead of String.
+   - Use Boolean instead of String for fault to save space.
+
+4. **Field Selection for Queries**
+
+   - Always fetch only required fields using **.select()**.
+   - Example:
+
+   ```
+   Claim.find({ status: 'Pending' }).select('policyNumber incidentDate status');
+   ```
+
+5. **TTL (Time-To-Live) Index for Old Records**
+
+   - Automatically delete old claims after a certain period.
+   - Example (Expire after 2 years):
+
+   ```
+   claimSchema.index({ notificationDate: 1 }, { expireAfterSeconds: 63072000 });
+   ```
+
+6. **Data Validation with Mongoose**
+
+   - Required fields prevent incomplete records.
+   - Enum validation for **status** ensures only valid values.
+
+7. **Use Aggregations for Analytics** - Aggregation pipelines optimize bulk operations like calculating total repair costs. - Example:
+
+   ```
+   Claim.aggregate([
+   { $match: { status: 'Completed' } },
+   { $group: { _id: null, totalRepairCost: { $sum: "$repairCost.gross" } } }
+   ]);
+   ```
+
+With these optimizations, the collection will remain efficient in both storage and query performance.
+
+---
