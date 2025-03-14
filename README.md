@@ -43,7 +43,10 @@ Upgrading our Node.js project from version 10 to 20 introduced breaking changes,
   - Migrated callbacks to Promises/async-await.
 
 - **GridFS Alternative Implementation:**
+
   - After extensive research and discussions, no direct alternative was found.
   - Studied GridFS’s underlying dependencies and wrote a custom function to handle file chunking and retrieval manually.
+
+- [Grid FS Bucket (my custom function)](https://github.com/danyalkhan999/dynamatix)
 
 This challenge pushed me to explore file storage solutions deeply and reinforced the importance of structured problem-solving when third-party solutions are unavailable.
