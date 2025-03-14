@@ -89,3 +89,23 @@ Failures with **high severity and high frequency** are prioritized. Solutions in
 Failure simulations (e.g., service shutdowns, incorrect requests) help verify if fixes work. Based on results, the system is further refined for better resilience.
 
 This approach ensures critical failures are caught and resolved early, leading to a more stable and reliable Node.js application.
+
+# Example: Preventing Downtime in a Real-Time Chat Application
+
+## **Project Overview**
+
+In my previous project i didn't apply FMEA approach to mitigate risks. So I'm taking an example and then try to apply FMEA approach to mitigate risks.
+This project was a **real-time chat application** built with **Node.js, Express, and Socket.io**. The app supported private chats, group messaging, and online status updates.
+
+## **Applying the FMEA Approach**
+
+| **Step**                          | **Application in the Chat App**                                                                                                                                                                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Identify Failure Points**    | - WebSocket connections dropping frequently. <br> - High memory usage causing server crashes. <br> - Message loss when the server restarts.                                                                                                                   |
+| **2. Evaluate Impact & Severity** | - **WebSocket Drops:** Users experience random disconnections. <br> - **High Memory Usage:** Could crash the server, causing downtime. <br> - **Message Loss:** Critical failure as users lose chat history.                                                  |
+| **3. Prioritize & Plan Fixes**    | - **WebSocket Drops:** Implemented automatic reconnection and heartbeat pings. <br> - **Memory Issues:** Optimized event listeners and introduced memory monitoring. <br> - **Message Loss:** Used Redis as a temporary store before writing to the database. |
+| **4. Test & Iterate**             | - Simulated high traffic to check server performance. <br> - Introduced error logging to track WebSocket disconnections. <br> - Verified Redis buffer storage during server restarts.                                                                         |
+
+## **Outcome**
+
+By following this structured approach, we **prevented random disconnects, reduced server crashes, and ensured message reliability**, making the chat app more stable and user-friendly.
