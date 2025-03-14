@@ -395,3 +395,36 @@ We'll build a REST API in Node.js with Express for managing claims. This API wil
 3. Get a Single Claim → GET /claims/:id
 4. Update a Claim → PUT /claims/:id
 5. Delete a Claim → DELETE /claims/:id
+
+# API Design - PlantUML Diagram
+
+```
+@startuml
+title Claim Management API
+
+actor User
+participant "Express Server" as Server
+database "MongoDB" as DB
+
+User -> Server: POST /claims (Create a claim)
+Server -> DB: Insert claim data
+Server -> User: 201 Created
+
+User -> Server: GET /claims (Fetch all claims)
+Server -> DB: Retrieve claims
+Server -> User: 200 OK (List of claims)
+
+User -> Server: GET /claims/{id} (Fetch claim by ID)
+Server -> DB: Retrieve claim
+Server -> User: 200 OK (Claim data)
+
+User -> Server: PUT /claims/{id} (Update claim)
+Server -> DB: Update claim data
+Server -> User: 200 OK (Updated claim)
+
+User -> Server: DELETE /claims/{id} (Delete claim)
+Server -> DB: Remove claim record
+Server -> User: 200 OK (Deleted)
+
+@enduml
+```
