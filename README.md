@@ -436,3 +436,12 @@ Server -> User: 200 OK (Deleted)
 3. Data Validation: Use express-validator to validate request data.
 4. Error Handling: Implement a global error handler.
 5. JSDoc for API Documentation: Write proper documentation for each function.
+
+# JSDoc Documentation
+
+To generate documentation from JSDoc comments, install jsdoc and run:
+
+```
+npm install -g jsdoc
+jsdoc -r .
+```
