@@ -388,4 +388,10 @@ With these optimizations, the collection will remain efficient in both storage a
 
 ## Task 3: Create API in Node.JS - Write plantuml and Tell me the steps you took to write clean code, and code documentation
 
-I have written the code in JS Docs format.
+We'll build a REST API in Node.js with Express for managing claims. This API will have the following endpoints:
+
+1. Create a Claim → POST /claims
+2. Get All Claims → GET /claims
+3. Get a Single Claim → GET /claims/:id
+4. Update a Claim → PUT /claims/:id
+5. Delete a Claim → DELETE /claims/:id
